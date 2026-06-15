@@ -11,7 +11,6 @@ The pipeline leverages a Bidirectional Long Short-Term Memory (Bi-LSTM) network 
 
 ## Repository Architecture
 
-```text
 ├── README.md                 # User documentation and guide
 ├── template_inference.py     # Clean template for deploying models to new datasets
 ├── models/                   # Finalized trained neural network graphs
