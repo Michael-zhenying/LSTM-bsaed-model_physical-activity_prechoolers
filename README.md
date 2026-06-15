@@ -1,9 +1,9 @@
 # LSTM-bsaed-model_physical-activity_prechoolers
 Deep Learning (Bi-LSTM) frameworks for classifying preschoolers' physical activity and sedentary behaviour from thigh-worn Fibion and wrist-worn ActiGraph raw accelerometer data.
 
-# Multi-Sensor Deep Learning Framework for Preschooler Physical Activity Classification
+Markdown# Multi-Sensor Deep Learning Framework for Preschooler Physical Activity Classification
 
-This repository contains the finalized, production-ready deep learning models, pre-fitted preprocessing vectors, and deployment script templates from the manuscript titled: **Comparing Deep Learning and Cut-Points for Preschooler Physical Activity and Sedentary Behaviour Classification from Thigh, Wrist, and Multi-Site Accelerometers**. 
+This repository contains the finalized, production-ready deep learning models, pre-fitted preprocessing vectors, and deployment script templates from the manuscript titled: **[Insert Your Manuscript Title Here]**. 
 
 The pipeline leverages a Bidirectional Long Short-Term Memory (Bi-LSTM) network architecture optimized to bypass manual, hand-crafted feature engineering. It directly interprets continuous, raw triaxial acceleration patterns to classify preschooler movement intensities into Sedentary Behavior (SB), Light Physical Activity (LPA), or Moderate-to-Vigorous Physical Activity (MVPA).
 
