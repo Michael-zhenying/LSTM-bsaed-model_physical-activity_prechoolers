@@ -10,7 +10,7 @@ The pipeline leverages a Bidirectional Long Short-Term Memory (Bi-LSTM) network 
 ---
 
 ## Repository Architecture
-
+``` text
 ├── README.md                 # User documentation and guide
 ├── template_inference.py     # Clean template for deploying models to new datasets
 ├── models/                   # Finalized trained neural network graphs
@@ -21,8 +21,10 @@ The pipeline leverages a Bidirectional Long Short-Term Memory (Bi-LSTM) network 
     ├── scaler_combined.pkl
     ├── scaler_actigraph.pkl
     └── scaler_fibion.pkl
+```
 
-## Environmental RequirementsTo ensure execution compatibility and prevent graph errors, deploy this framework within a Python environment matching the following primary version footprints:
+## Environmental Requirements
+To ensure execution compatibility and prevent graph errors, deploy this framework within a Python environment matching the following primary version footprints:
 *    Python: v3.12.4
 *    TensorFlow: v2.15.0
 *    scikit-learn: v1.4+numpy: v1.26+
@@ -40,30 +42,6 @@ Our validation protocols yielded a highly rigid structural blueprint. For proper
 *    Combined Loop: Shape (90, 6) -> ['Accelerometer X', 'Accelerometer Y', 'Accelerometer Z', 'x', 'y', 'z']
 *    ActiGraph Only Loop: Shape (90, 3) -> ['Accelerometer X', 'Accelerometer Y', 'Accelerometer Z']
 *    Fibion Only Loop: Shape (90, 3) -> ['x', 'y', 'z']
-
-## How to Run InferenceUse the provided template_inference.py template script as your core deployment asset. Below is a conceptual workflow to integrate your raw CSV recordings into the inference engine:Pythonimport numpy as np
-import pickle
-from tensorflow.keras.models import load_model
-
-# 1. Define targeted setup setup
-CONFIG = "combined"  # Options: "combined", "actigraph", "fibion"
-ACTIVITY_MAPPING = ["SB", "LPA", "MVPA"]
-
-# 2. Pipeline Asset Loading
-model = load_model(f'models/final_model_{CONFIG}.keras')
-with open(f'scalers/scaler_{CONFIG}.pkl', 'rb') as f:
-    scaler = pickle.load(f)
-
-# 3. Dummy Array Representation (Replicate with your actual 3-second windows data)
-# Example represents: 5 sequential windows of 3 seconds (90 samples) with 6 data streams
-mock_processed_windows = np.random.randn(5, 90, 6) 
-
-# 4. Generate Classification Vector
-probabilities = model.predict(mock_processed_windows)
-predicted_classes = np.argmax(probabilities, axis=1)
-predicted_intensities = [ACTIVITY_MAPPING[idx] for idx in predicted_classes]
-
-print("Model Classifications per Epoch window:", predicted_intensities)
 
 ## Open Science License
 This framework, its weights, and template parameters are distributed under the MIT License. You are free to copy, modify, and distribute these pipelines in future research tracking childhood movement behaviors, provided proper academic citation is credited to the parent manuscript.
